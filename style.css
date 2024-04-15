@@ -1,0 +1,169 @@
+$text--main-900 = #00061A
+$text--soft-400 = #9297AA
+$text--white-0 = #FFFFFF
+$stroke--sub-300 = #ACB1C3
+$stroke--soft-200 = #DBDFE6
+$bg--white-0 = #FFFFFF
+$bg--weak-100 = #EFF2F5
+$bg--soft-200 = #DBDFE6
+$blue-dark = #042AAF
+$blue-base = #2051F8
+$blue-light = #D6DFFF
+$red-base = #E51940
+$red-light = #FBDAE1
+
+*
+	font-family 'Inter'
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+
+.wrapper
+	position relative
+	width 100%
+	height 100vh
+	display flex
+	align-content center
+	align-items center
+	justify-content center
+	flex-direction column
+	font-family 'Inter'
+
+label, input
+	display flex
+
+.inputtext-wrapper
+	display flex
+	flex-direction column
+	position relative
+	max-width 360px
+	&+.inputtext-wrapper
+		margin-top 28px
+	&+.button-wrapper
+		margin-top 28px
+		
+.error-message
+	display none
+	position absolute
+	bottom -20px
+	font-size 13px
+	font-weight 500
+	line-height 18px
+	color $red-base
+	.ti
+		font-size 16px
+	
+		
+.inputtext
+	width 100%
+	label
+		width 100%
+		color $text--main-900
+		font-weight 500
+		margin-bottom 6px
+		i
+			margin-left 4px
+			color $blue-base
+	input
+		padding-left 12px
+		padding-right 12px
+		color $text--main-900
+		font-weight 400
+		border 1px solid $stroke--sub-300
+		border-radius 8px
+		transition all 0.2s
+		box-shadow 0 0 0 0 #FFFFFF
+		&::-webkit-input-placeholder
+			color $text--soft-400
+		&:hover
+			border 1px solid $stroke--soft-200
+			box-shadow 0 0 0 3px $bg--soft-200
+		&:focus,
+		&:focus-visible
+			outline none
+			border-color $blue-base
+			box-shadow 0 0 0 3px $blue-light
+	&.error-input
+		input
+			border-color $red-base
+			box-shadow 0 0 0 3px $red-light
+		&.error-input--secondary
+			.error-message--secondary
+				display block
+		&.error-input--primary
+			.error-message--primary
+				display block
+	&.valid-input
+		.ti-check
+			color $blue-base
+			opacity 1
+			transform scale(1)
+				
+	.ti-check
+		position absolute
+		right 12px
+		bottom 12px
+		font-size 18px
+		color $text--main-900
+		opacity 0
+		transform scale(0.9)
+		transition all 0.3s ease-in
+				
+	&.inputtext--md
+		label
+			font-size 14px
+			line-height 20px
+		input
+			height 40px
+			font-size 13px
+			line-height 18px
+			
+
+.button-wrapper
+	width 100%
+	display flex
+	max-width 360px
+	align-content end
+	flex-direction row
+	gap 12px
+
+.button
+	display flex
+	align-items center
+	align-content center
+	justify-content center
+	gap 4px
+	border-radius 8px
+	outline none
+	border none
+	cursor pointer
+	transition background-color 0.2s
+	.button-label
+		font-weight 500
+		padding-left 4px
+		padding-right 4px
+	&.button--full
+		width 100%
+	&.button--md
+		padding 10px 12px 10px 12px
+		.button-label
+			font-size 14px
+			line-height 20px
+		.ti
+			font-size 18px
+	&.button--filled
+		.button-label,
+		.ti
+			color $text--white-0
+		&.button--primary
+			background-color $blue-base
+			&:hover
+				background-color $blue-dark
+	&.button--stroke
+		.button-label,
+		.ti
+			color $text--main-900
+		&.button--neutral
+			background-color $bg--white-0
+			border 1px solid $stroke--sub-300
+			&:hover
+				background-color $bg--weak-100
